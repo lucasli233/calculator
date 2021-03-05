@@ -52,7 +52,7 @@ body {
   font-size: 2rem;
   border: 1px solid white;
   outline: none;
-  background: rgb(0, 0, 0, 0.25);
+  background: rgb(255, 255, 255, 0.1);
   grid-column: span 4;
   display: flex;
   flex-direction: column;
