@@ -75,6 +75,8 @@ class Calculator {
     }
   }
   updateDisplay() {
+    console.log(this.operation)
+
     this.currText.innerText = this.getDisplayNumber(this.currOperand)
     if (this.operation != null) {
       this.prevText.innerText = `${this.getDisplayNumber(this.prevOperand)} ${
@@ -98,6 +100,11 @@ const calculator = new Calculator(prevText, currText)
 
 numberButton.forEach((button) => {
   button.addEventListener("click", () => {
+    if (calculator.operation === undefined) {
+      calculator.clear()
+      calculator.updateDisplay()
+      calculator.operation = ""
+    }
     calculator.append(button.innerText)
     calculator.updateDisplay()
   })
@@ -110,17 +117,17 @@ operationButton.forEach((button) => {
   })
 })
 
-equalsButton.addEventListener("click", (button) => {
+equalsButton.addEventListener("click", () => {
   calculator.compute()
   calculator.updateDisplay()
 })
 
-acButton.addEventListener("click", (button) => {
+acButton.addEventListener("click", () => {
   calculator.clear()
   calculator.updateDisplay()
 })
 
-delButton.addEventListener("click", (button) => {
+delButton.addEventListener("click", () => {
   calculator.delete()
   calculator.updateDisplay()
 })
